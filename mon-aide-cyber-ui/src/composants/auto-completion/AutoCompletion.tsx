@@ -18,16 +18,16 @@ import {
   surClickEnDehors,
 } from './reducteurAutoCompletion.ts';
 
-type ProprietesAutoCompletion<T extends object | string> = {
-  nom: string;
-  placeholder?: string;
-  mappeur: (valeur: T | string) => string;
-  surSelection: (valeur: T) => void;
-  surSaisie: (valeur: T | string) => void;
-  valeurSaisie: T;
-  suggestionsInitiales: T[];
-  clefsFiltrage?: (keyof T)[];
-};
+type ProprietesAutoCompletion<T extends object | string> =
+  React.InputHTMLAttributes<HTMLInputElement> & {
+    nom: string;
+    mappeur: (valeur: T | string) => string;
+    surSelection: (valeur: T) => void;
+    surSaisie: (valeur: T | string) => void;
+    valeurSaisie: T;
+    suggestionsInitiales: T[];
+    clefsFiltrage?: (keyof T)[];
+  };
 
 export const AutoCompletion = <T extends object | string>(
   proprietes: PropsWithChildren<ProprietesAutoCompletion<T>>
@@ -133,9 +133,9 @@ export const AutoCompletion = <T extends object | string>(
     <div className="autocomplete fr-col-12" ref={referenceConteneur}>
       <div className="autocomplete-labellise">
         <input
+          {...proprietes}
           className="fr-input"
           ref={referenceChampSaisie}
-          placeholder={proprietes.placeholder}
           type="text"
           id={etat.nom}
           name={etat.nom}
