@@ -13,6 +13,7 @@ import { ComposantDemandeEtreAide } from './composants/gestion-demandes/etre-aid
 import { EcranCreationEspaceAidant as ComposantDemandeAidantCreationEspaceAidant } from './domaine/espace-aidant/demande-aidant-creation-espace-aidant/EcranCreationEspaceAidant.tsx';
 import { LayoutCreationEspaceAidant } from './composants/layout/LayoutCreationEspaceAidant.tsx';
 import { EcranDevenirAidant } from './domaine/vitrine/ecran-devenir-aidant/EcranDevenirAidant.tsx';
+import { EcranBeneficierDuDispositif } from './domaine/vitrine/ecran-beneficier-du-dispositif/EcranBeneficierDuDispositif.tsx';
 
 export const RouteurPublic = () => {
   return (
@@ -23,7 +24,7 @@ export const RouteurPublic = () => {
         <Route path="charte-aidant" element={<CharteAidant />} />
         <Route
           path="demandes/etre-aide"
-          element={<ComposantDemandeEtreAide />}
+          element={<EcranBeneficierDuDispositif />}
         />
         <Route path="a-propos">
           <Route path="kit-de-communication" element={<KitDeCommunication />} />
